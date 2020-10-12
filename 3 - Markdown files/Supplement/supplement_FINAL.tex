@@ -1,0 +1,251 @@
+% Options for packages loaded elsewhere
+\PassOptionsToPackage{unicode}{hyperref}
+\PassOptionsToPackage{hyphens}{url}
+%
+\documentclass[
+]{article}
+\usepackage{lmodern}
+\usepackage{amssymb,amsmath}
+\usepackage{ifxetex,ifluatex}
+\ifnum 0\ifxetex 1\fi\ifluatex 1\fi=0 % if pdftex
+  \usepackage[T1]{fontenc}
+  \usepackage[utf8]{inputenc}
+  \usepackage{textcomp} % provide euro and other symbols
+\else % if luatex or xetex
+  \usepackage{unicode-math}
+  \defaultfontfeatures{Scale=MatchLowercase}
+  \defaultfontfeatures[\rmfamily]{Ligatures=TeX,Scale=1}
+\fi
+% Use upquote if available, for straight quotes in verbatim environments
+\IfFileExists{upquote.sty}{\usepackage{upquote}}{}
+\IfFileExists{microtype.sty}{% use microtype if available
+  \usepackage[]{microtype}
+  \UseMicrotypeSet[protrusion]{basicmath} % disable protrusion for tt fonts
+}{}
+\makeatletter
+\@ifundefined{KOMAClassName}{% if non-KOMA class
+  \IfFileExists{parskip.sty}{%
+    \usepackage{parskip}
+  }{% else
+    \setlength{\parindent}{0pt}
+    \setlength{\parskip}{6pt plus 2pt minus 1pt}}
+}{% if KOMA class
+  \KOMAoptions{parskip=half}}
+\makeatother
+\usepackage{xcolor}
+\IfFileExists{xurl.sty}{\usepackage{xurl}}{} % add URL line breaks if available
+\IfFileExists{bookmark.sty}{\usepackage{bookmark}}{\usepackage{hyperref}}
+\hypersetup{
+  hidelinks,
+  pdfcreator={LaTeX via pandoc}}
+\urlstyle{same} % disable monospaced font for URLs
+\usepackage[margin=1in]{geometry}
+\usepackage{graphicx,grffile}
+\makeatletter
+\def\maxwidth{\ifdim\Gin@nat@width>\linewidth\linewidth\else\Gin@nat@width\fi}
+\def\maxheight{\ifdim\Gin@nat@height>\textheight\textheight\else\Gin@nat@height\fi}
+\makeatother
+% Scale images if necessary, so that they will not overflow the page
+% margins by default, and it is still possible to overwrite the defaults
+% using explicit options in \includegraphics[width, height, ...]{}
+\setkeys{Gin}{width=\maxwidth,height=\maxheight,keepaspectratio}
+% Set default figure placement to htbp
+\makeatletter
+\def\fps@figure{htbp}
+\makeatother
+\setlength{\emergencystretch}{3em} % prevent overfull lines
+\providecommand{\tightlist}{%
+  \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
+\setcounter{secnumdepth}{-\maxdimen} % remove section numbering
+\usepackage[french, USenglish]{babel}
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+\renewcommand{\sectionmark}[1]{\markright{#1}}
+\fancyhf{}
+\lhead{{}}
+\rhead{{\today}}
+\cfoot{{\thepage}}
+\usepackage[T1]{fontenc}
+\usepackage{bm}
+\usepackage{mathpazo}
+\usepackage{tabularx}
+\usepackage{titlesec}
+\usepackage{graphicx, xcolor}
+\usepackage{wrapfig}
+\usepackage{amssymb}
+\usepackage{amsmath}
+\usepackage{lscape}
+\usepackage{esint}
+\usepackage{paralist}
+\usepackage{outlines}
+\newcommand{\I}{\textrm{I}}
+\newcommand{\N}{\mathcal{N}}
+\newcommand{\D}{\textrm{D}}
+\newcommand{\E}{\mathbb{E}}
+\setlength{\parskip}{1em} %0.5\baselineskip
+\setlength{\parindent}{0pt}
+\linespread{1.15}
+\titleformat*{\section}{\Large\scshape\bfseries}
+\titleformat*{\subsection}{\large\scshape\bfseries}
+\titleformat*{\subsubsection}{\bfseries}
+\titleformat*{\paragraph}{\bfseries}
+\titleformat*{\subparagraph}{\bfseries}
+\renewcommand{\thesection}{\Roman{section}.} % 1.A. as subsections
+\renewcommand{\thesubsection}{\Alph{subsection}.} % 1.A. as subsections
+\titlespacing{\section}{0pt}{2pt}{3pt}
+\titlespacing{\subsection}{0pt}{2pt}{2pt}
+\titlespacing{\subsubsection}{0pt}{0pt}{0pt}
+\titlespacing{\paragraph}{0pt}{1pt}{5pt}
+\titlespacing{\subparagraph}{10pt}{1pt}{5pt}
+\usepackage{hyperref}
+\hypersetup{ colorlinks=true, citecolor = blue, linkcolor=blue, urlcolor=blue}
+\usepackage[font={footnotesize}]{subcaption}
+\usepackage[font={footnotesize}]{caption}
+\usepackage{caption, setspace}
+\captionsetup{font={stretch=1}}
+\captionsetup[figure]{font=footnotesize,labelfont=footnotesize}
+\usepackage{tabto}
+\def\quoteattr#1#2{\setbox0=\hbox{#2}#1\tabto{\dimexpr\linewidth-\wd0}\box0}
+\makeatletter
+\newcommand{\pushright}[1]{\ifmeasuring@#1\hfill$\displaystyle#1$\fi\ignorespaces}
+\makeatother
+\newcommand{\FixMe}[1]{\textcolor{orange}{ [#1]}}
+\newcommand{\Comment}[1]{\textcolor{purple}{\textit{[#1]}}}
+\newcommand{\Quickwin}{{\color{blue}{$\bigstar$}} }
+\renewcommand{\thetable}{S\arabic{table}}
+\usepackage{letltxmacro}
+\LetLtxMacro\Oldfootnote\footnote
+\newcommand{\EnableFootNotes}{\LetLtxMacro\footnote\Oldfootnote}
+\newcommand{\DisableFootNotes}{\renewcommand{\footnote}[2][]{\relax}}
+\makeatother
+\graphicspath{{../Output/"}}
+
+\author{}
+\date{\vspace{-2.5em}}
+
+\begin{document}
+
+\begin{center} 
+    \textbf{\scshape \LARGE Supplemental Information}\\  \vspace{2mm}
+    {\large COVID-19 and All-Cause Mortality in the US and 18 Comparison Countries}\\ \vspace{2mm} 
+    {\large Alyssa Bilinski $\cdot$ Ezekiel Emanuel\footnote{Contact: zemanuel@upenn.edu},\footnote{Data and code are available on GitHub (\href{https://github.com/abilinski/MortalityCOVID19}{link}).}} \\
+\end{center}
+
+\vspace{-0.50em}
+
+\bigskip
+
+\hypertarget{calculations-in-tables-1-and-2}{%
+\subsection{Calculations in Tables 1 and
+2}\label{calculations-in-tables-1-and-2}}
+
+\hypertarget{difference-in-deaths}{%
+\subsubsection{Difference in deaths}\label{difference-in-deaths}}
+
+Let \(r_i\) be the death rate of interest (reported COVID-19 deaths or
+excess all cause mortality) per 100,000 in country \(i\), and \(d\) be
+US deaths over the period of study. Let \(p\) be the US 2019 population,
+\(p=329,064,917\) according to the European Centre for Disease
+Prevention and Control. We estimate difference in deaths: \begin{align}
+d - \left(r_i/100,000\right)*p
+\end{align}
+
+\hypertarget{difference-in-deaths-if-comparable-after-some-time-point}{%
+\subsubsection{Difference in deaths if comparable after some time
+point}\label{difference-in-deaths-if-comparable-after-some-time-point}}
+
+Letting \(r_{iT}\) be the death rate per 100,000 in country \(i\)
+between time \(T\) and the end of the period of study and \(d_T\) be US
+deaths by time \(T\), we estimate potential difference in deaths since
+time \(T\): \begin{align}
+d - \left(d_T + \left(r_{iT}/100,000\right)*p\right)
+\end{align}
+
+\hypertarget{regressions}{%
+\subsection{Regressions}\label{regressions}}
+
+\hypertarget{table-1}{%
+\subsubsection{Table 1}\label{table-1}}
+
+Let \(d_i\) be the number of deaths in country \(i\) over some time
+period, and \(p_i\) be its population. Assume we have countries
+\(j = 1,...,n\) and \(\mathbf{C}\) be a \((n-1) \times 1\) vector of
+country indicator variables with the US omitted as reference category.
+We assume that \(d_i \sim Pois(\lambda_i)\) and \begin{align}
+\mathbb{E}\left[log(\lambda_i)\right] = \beta_0 +  \bm{\beta}\mathbf{C} + log(p_i),
+\end{align} where \(\bm{\beta}\) is \(1 \times n-1\) and \(\beta_j\)
+compares the death rate in country \(j\) to the US.
+
+\bigskip
+
+\hypertarget{table-2}{%
+\subsubsection{Table 2}\label{table-2}}
+
+Let \(d_{i,w,y}\) be the number of deaths in country \(i\) at week \(w\)
+in year \(y\), and \(p_i\) be its population. Assume we have countries
+\(j = 1,...,n\) and \(\mathbf{C}\) be an \((n-1) \times 1\) vector of
+country indicator variables with the US omitted as reference category,
+\(\mathbf{W}\) be a \((W-1) \times 1\) vector of week indicator
+variables, and \(\mathbb{I}_{2020}\) be equal to 1 if the year is 2020
+and 0 otherwise. We assume that \(d_{i,w,y} \sim Pois(\lambda_{i,w,y})\)
+and \begin{align}
+\mathbb{E}\left[log(\lambda_{i,w,y})\right] = \beta_0  + \bm{\beta}\mathbf{C} + \bm{\gamma}\mathbf{W} + 
+\delta \mathbb{I}_{2020}  + \bm{\alpha}\mathbf{C}\mathbb{I}_{2020}  + log(p_i),
+\end{align} where \(\bm{\alpha}\) is \(1 \times n-1\) and \(\alpha_j\)
+compares excess 2020 mortality in country \(j\) to in the
+US.\footnote{For estimation strategies, see Weinberger DM, Chen J, Cohen T, et al. Estimation of Excess Deaths Associated With the COVID-19 Pandemic in the United States, March to May 2020. JAMA Intern Med. Published online July 1, 2020. doi:10.1001/jamainternmed.2020.3391.}
+
+\bigskip
+
+\hypertarget{data-sources}{%
+\subsection{Data sources}\label{data-sources}}
+
+We accessed data on \textbf{COVID-19 deaths} from the
+\textbf{European Centre for Disease Prevention and Control COVID-19 database}
+(\href{https://www.ecdc.europa.eu/en/publications-data/download-todays-data-geographic-distribution-covid-19-cases-worldwide}{link},
+accessed through R library
+\href{https://github.com/seandavi/sars2pack}{sars2pack}). We accessed
+\textbf{all-cause mortality data} from country-specific sources (Table
+\ref{tbl1}). We also referenced \emph{The Economist}
+\href{https://github.com/TheEconomist/covid-19-excess-deaths-tracker}{(link)}
+and \emph{The New York Times}
+\href{https://github.com/nytimes/covid-19-data/tree/master/excess-deaths}{(link)}
+excess death GitHubs and associated coverage.
+
+\begin{landscape}
+\begin{table}[]
+\footnotesize
+\begin{tabular}{p{.5in}p{1.5in}p{2in}p{1in}p{1.5in}p{1in}p{.5in}}
+\textbf{Country} & \textbf{Source}                                                                                                                                                      & \textbf{File}                                                                                                                                                              & \textbf{Included} & \textbf{Week format}                                       & \textbf{Notes}                                                           & \textbf{Link}                                                                                                                                                                                                                                                                                                                                                 \\
+Australia        & Australian Bureau of Statistics                                                                                                                                      & Provisional Mortality Statistics                                                                                                                                           & No                &                                                          & Data only available through May 2020                                     & \href{https://www.abs.gov.au/statistics/health/causes-death/provisional-mortality-statistics/latest-release}{link}                                                                                                                                                                                                                         \\
+Austria          & Statistics Austria                                                                                                                                                   & Age-specific death rates in Austria (excl. deaths abroad) by   calendar week                                                                                               & Yes               & Sunday-Saturday                                          &                                                                          & \href{https://statcube.at/statcube/opendatabase?id=derate\_kalwo}{link}  \\
+Belgium & Statbel &  Number of deaths per day, sex, age, region, province, district  &
+Yes & Daily data, aggregated by week (Monday-Sunday) & &  \href{https://statbel.fgov.be/en/open-data/number-deaths-day-sex-district-age}{link} \\
+Canada           & StatCan                                                                                                                                                              & Adjusted number of deaths, expected number of deaths and   estimates of excess mortality, by week                                                                          & Yes               & Monday-Sunday                                            &                                                                          & \href{https://www150.statcan.gc.ca/t1/tbl1/en/tv.action?pid=1310078401}{link}                                                                                                                                                                                                                                                              \\
+Denmark          & Statistics Denmark                                                                                                                                                   &  DODC1: Deaths per day (experimental statistics) by sex and age                                                                                                  & Yes               & Daily data, aggregated by week (Monday-Sunday)                                          &                                                                          & \href{https://www.statbank.dk/dodc2}{link}                                                                                                                                                                                                                                                                                                 \\
+Finland          & Statistics Finland                                                                                                                                                   & 12ng -- Deaths by week according to sex, age and region (Rapid estimate), 1990W01-2020W37*                                                                               & Yes               & Sunday-Saturday                                          &                                                                          & \href{https://pxnet2.stat.fi/PXWeb/pxweb/en/Kokeelliset\_tilastot/Kokeelliset\_tilastot\_\_vamuu\_koke/statfin\_vamuu\_pxt\_12ng.px/}{link}                                                                                                                                                                                                \\
+France           & Insée                                                                                                                                                                & Téléchargement des fichiers des décès quotidiens                                                                                                                           & Yes               & Daily data, aggregated by week (Monday-Sunday) & Economist GitHub approach for all-cause mortality 2015-17                    & \href{https://www.insee.fr/fr/statistiques/4487988?sommaire=4487854}{link},
+\href{https://www.insee.fr/fr/information/4190491}{link}, \href{https://github.com/TheEconomist/covid-19-excess-deaths-tracker}{link}                                                                                                                                                               \\
+Germany          & DeStatis                                                                                                                                                             & Sterbefälle - Fallzahlen nach Tagen, Wochen, Monaten,   Altersgruppen und Bundesländern für Deutschland 2016 - 2020                                                        & Yes               & Daily data, aggregated by week (Monday-Sunday) & Only available starting in 2016                                          & \href{https://www.destatis.de/DE/Themen/Gesellschaft-Umwelt/Bevoelkerung/Sterbefaelle-Lebenserwartung/Tabellen/sonderauswertung-sterbefaelle.html}{link}                                                                                                                                                                                   \\
+Israel           & Ministry of Health                                                                                                                                                   & Weekly Epidemiological Reports                                                                                                                                      & Yes               & Reports dated Saturday                                          & Received translation assistance                                          & \href{https://www.health.gov.il/UnitsOffice/HD/PH/epidemiology/Pages/epidemiology\_report.aspx?WPID=WPQ7\&PN=7\&fbclid=IwAR2sz9mHp4lpB8rXm0gdvIoiftfnmmHqSwra8IWl7voMw1mmpffzWrRG774}{link}                                                                                                                                                \\
+Italy            & Istat                                                                                                                                                                & 10 August 2020 – Male, female and total deaths                                                                                                                             & No                &                                                          & Data only available through June 2020                                    & \href{https://www.istat.it/en/archivio/240106}{link}                                                                                                                                                                                                                                                                                       \\
+Japan            & e-Stat                                                                                                                                                               & Current Population Survey / Vital   Statistics                                                                                                                             & No                &                                                          & Data only available through July 2, 2020                                 & \href{https://www.e-stat.go.jp/stat-search/files?page=1\&layout=dataset\&toukei=00450011\&tstat=000001028897\&cycle=1\&tclass1=000001053058\&tclass2=000001053059\&metadata=1\&data=1}{link}                                                                                                                                               \\
+Netherlands      & StatLine                                                                                                                                                             & Deaths registered weekly, by sex and age                                                                                                                                   & Yes               & Sunday-Saturday                                          &                                                                          & \href{https://opendata.cbs.nl/statline/portal.html?_la=en&_catalog=CBS&tableId=70895ENG&_theme=1079}{link}                                                                                                                                                                                                                                            \\
+Norway           & Statistics Norway                                                                                                                                                    & 07995: Deaths, by sex, age and week. Preliminary figures 2000 - 2020                                                                                                       & Yes               & Sunday-Saturday                                          &                                                                          & \href{https://www.ssb.no/en/statbank/table/07995/}{link}                                                                                                                                                                                                                                                                                   \\
+South Korea      & Statistics Korea                                                                                                                                                     & Vital statistics (births/deaths)                                                                                                                                           & No                &                                                          & Received translation assistance; data only available monthly & \href{http://kosis.kr/statisticsList/statisticsListIndex.do?menuId=M\_01\_01\&vwcd=MT\_ZTITLE\&parmTabId=M\_01\_01\#SelectStatsBoxDiv}{link}                                                                                                                                                                                               \\
+Spain            & Instituto Nacional de Estadística                                                                                                                                    & Estimate of Weekly Deaths                                                                                                                                                  & Yes               & Sunday-Saturday                                          &                                                                          & \href{https://www.ine.es/en/experimental/defunciones/experimental_defunciones.htm}{link}                                                                                                                                                                                                                                                                       \\
+Sweden           & Statistics Sweden                                                                                                                                                    & Preliminary statistics on deaths in Sweden                                                                                                                                 &                   & Daily data, aggregated by week (Monday-Sunday) &                                                                          & \href{https://www.scb.se/en/About-us/news-and-press-releases/statistics-sweden-to-publish-preliminary-statistics-on-deaths-in-sweden/}{link}                                                                                                                                                                                               \\
+Switzerland      & Federal Statistics Office                                                                                                                                            & Weekly number of deaths, 2020 \& 2010-2019                                                                                                                                 &                   & Sunday-Saturday                                          &                                                                          & \href{https://www.bfs.admin.ch/bfs/en/home/statistics/health/state-health/mortality-causes-death.html}{link}                                                                                                                                                                                                                               \\
+United Kingdom   & Office of National Statistics (GB), National Records of Scotland, Northern Ireland Statistics and Research Agency & Deaths registered weekly in England and Wales, provisional, Deaths involving coronavirus (COVID-19) in Scotland, Weekly death registrations in Northern Ireland, 2020. & Yes & Sunday-Saturday, Monday-Sunday                                          &                                                                          &  \href{https://www.ons.gov.uk/peoplepopulationandcommunity/birthsdeathsandmarriages/deaths/datasets/weeklyprovisionalfiguresondeathsregisteredinenglandandwales}{link},   \href{https://www.nrscotland.gov.uk/covid19stats}{link},   \href{https://www.nisra.gov.uk/publications/weekly-deaths}{link} \\
+United States    & Centers for Disease Control and Prevention                                                                                                                           & Deaths involving coronavirus disease 2019   (COVID-19), pneumonia, and influenza reported to NCHS by week ending date,   United States. Week ending 2/1/2020 to 9/19/2020. & No                & Monday-Sunday                                            &                                                                          & \href{https://www.cdc.gov/nchs/nvss/vsrr/covid19/index.htm}{link}                                                                                                                                                                                                                                              
+                        
+\end{tabular}
+\caption{Data sources for all-cause mortality.  The "Included" column indicates whether available data met inclusion criteria; if not, this is explained in the "Notes" column.  Due to differences in reporting, week definition varies slightly.}
+\label{tbl1}
+\end{table}
+
+\end{landscape}
+
+\bigskip
+
+\end{document}

@@ -1,0 +1,413 @@
+---
+output:
+  pdf_document:
+    keep_tex: true
+    fig_caption: yes
+header-includes: 
+  - \usepackage[french, USenglish]{babel}
+  - \usepackage{fancyhdr}
+  - \pagestyle{fancy}
+  - \renewcommand{\sectionmark}[1]{\markright{#1}}
+  - \fancyhf{}
+  - \lhead{{}}
+  - \rhead{{\today}} 
+  - \cfoot{{\thepage}}
+  - \usepackage[T1]{fontenc}
+  - \usepackage{bm}
+  - \usepackage{mathpazo}
+  - \usepackage{tabularx}
+  - \usepackage{titlesec}
+  - \usepackage{graphicx, xcolor}
+  - \usepackage{wrapfig}
+  - \usepackage{amssymb}
+  - \usepackage{amsmath}
+  - \usepackage{lscape}
+  - \usepackage{esint}
+  - \usepackage{paralist}
+  - \usepackage{outlines}
+  - \newcommand{\I}{\textrm{I}}
+  - \newcommand{\N}{\mathcal{N}}
+  - \newcommand{\D}{\textrm{D}}
+  - \newcommand{\E}{\mathbb{E}}
+  - \setlength{\parskip}{1em} %0.5\baselineskip
+  - \setlength{\parindent}{0pt}
+  - \linespread{1.15}
+  - \titleformat*{\section}{\Large\scshape\bfseries}
+  - \titleformat*{\subsection}{\large\scshape\bfseries}
+  - \titleformat*{\subsubsection}{\bfseries}
+  - \titleformat*{\paragraph}{\bfseries}
+  - \titleformat*{\subparagraph}{\bfseries}
+  - \renewcommand{\thesection}{\Roman{section}.} % 1.A. as subsections
+  - \renewcommand{\thesubsection}{\Alph{subsection}.} % 1.A. as subsections
+  - \titlespacing{\section}{0pt}{2pt}{3pt}
+  - \titlespacing{\subsection}{0pt}{2pt}{2pt}
+  - \titlespacing{\subsubsection}{0pt}{0pt}{0pt}
+  - \titlespacing{\paragraph}{0pt}{1pt}{5pt}
+  - \titlespacing{\subparagraph}{10pt}{1pt}{5pt}
+  - \usepackage{hyperref}
+  - \hypersetup{ colorlinks=true, citecolor = blue, linkcolor=blue, urlcolor=blue}
+  - \usepackage[font={footnotesize}]{subcaption}
+  - \usepackage[font={footnotesize}]{caption}
+  - \usepackage{caption, setspace}
+  - \captionsetup{font={stretch=1}}
+  - \captionsetup[figure]{font=footnotesize,labelfont=footnotesize}
+  - \usepackage{tabto}
+  - \def\quoteattr#1#2{\setbox0=\hbox{#2}#1\tabto{\dimexpr\linewidth-\wd0}\box0}
+  - \makeatletter
+  - \newcommand{\pushright}[1]{\ifmeasuring@#1\hfill$\displaystyle#1$\fi\ignorespaces}
+  - \makeatother
+  - \newcommand{\FixMe}[1]{\textcolor{orange}{ [#1]}}
+  - \newcommand{\Comment}[1]{\textcolor{purple}{\textit{[#1]}}}
+  - \newcommand{\Quickwin}{{\color{blue}{$\bigstar$}} }
+  - \renewcommand{\thetable}{S\arabic{table}}
+  - \usepackage{letltxmacro}
+  - \LetLtxMacro\Oldfootnote\footnote
+  - \newcommand{\EnableFootNotes}{\LetLtxMacro\footnote\Oldfootnote}
+  - \newcommand{\DisableFootNotes}{\renewcommand{\footnote}[2][]{\relax}}
+  - \makeatother
+  - \graphicspath{{../Output/"}}
+
+---
+
+\begin{center} 
+    \textbf{\scshape \LARGE Extended Supplemental Information}\\  \vspace{2mm}
+    {\large COVID-19 and All-Cause Mortality in the US and 18 Comparison Countries}\\ \vspace{2mm} 
+    {\large Alyssa Bilinski $\cdot$ Ezekiel Emanuel\footnote{Contact: zemanuel@upenn.edu},\footnote{Data and code are available on GitHub (\href{https://github.com/abilinski/MortalityCOVID19}{link}).}} \\
+\end{center}
+    
+\vspace{-0.50em}
+
+\bigskip
+
+## Calculations in Tables 1 and 2
+
+### Difference in deaths
+Let $r_i$ be the death rate of interest (reported COVID-19 deaths or excess all cause mortality) per 100,000 in country $i$, and $d$ be US deaths over the period of study.  Let $p$ be the US 2019 population, $p=329,064,917$ according to the European Centre for Disease Prevention and Control.  We estimate difference in deaths:
+\begin{align}
+d - \left(r_i/100,000\right)*p
+\end{align}
+
+### Difference in deaths if comparable after some time point
+Letting $r_{iT}$ be the death rate per 100,000 in country $i$ between time $T$ and the end of the period of study and $d_T$ be US deaths by time $T$, we estimate potential difference in deaths since time $T$:
+\begin{align}
+d - \left(d_T + \left(r_{iT}/100,000\right)*p\right)
+\end{align}
+
+### Difference in deaths if matching after some criteria is met (i.e., adjustment for pandemic timing)
+Let time $T_i$ be the time that country $i$ meets some criteria (i.e., 60 days after $\geq$ 1 case per 100,000 population).  Let $T$ be the time that the US meets the criteria.  Letting $r_{iT_i}$ be the death rate per 100,000 in a comparison country between time $T_i$ and the end of the reporting period and $d_{T}$ be US deaths until time $T$, we estimate potential difference in deaths since time $T$:
+\begin{align}
+d - \left(d_{T} + \left(r_{iT_i}/100,000\right)*p\right)
+\end{align}
+
+## Technical notes
+
+### Analytic approach
+1. There has been debate in the epidemiological community regarding whether to adjust deaths per capita early in the pandemic.  Given a fixed number introductions, we do not expect that early in a pandemic, a virus would spread faster in a larger population than in a smaller one.  Nevertheless, we defer to per capita measures due to the geographic and demographic diversity of the United States that renders it likely more similar to a combination of small countries than a single countries, and as viral introductions may be proportional to population.  In addition, this measure may better capture the pandemic measure along other dimensions (e.g. perceived social impact).
+2. Due to large sample sizes, traditional statistical inference around differences in mortality rates often has narrow confidence intervals and meets traditional standards for "statistical significance" (see e.g., \href{https://jamanetwork.com/journals/jamainternalmedicine/fullarticle/2767980}{Weinberger et. al}).  As our other outcome measures (e.g. excess deaths) are invertible monotone transformation of mortality rates, statistical conclusions about the former apply to the latter.  However, other sources of uncertainty affect our results more than statistical randomness, which we aim to capture in sensitivity analyses.
+3. We consider a number of sensitivity analyses in the tables below.  Our main analysis focuses on \emph{calendar time}, assuming that the US death rate became comparable to another country's death rate after a particular point in time.  We consider both May and June for this change, allowing approximately 2-3 months for responses after cases and deaths emerged in the United States.  We use calendar time as our main specification because 1) the pandemic affected most countries at similar times (Table \ref{tbl.S1}), and 2) to the extent that there were differences, countries are able to react to the experiences of other peer countries (e.g. by responding earlier even if the pandemic affected them later).  However, we may want to \emph{adjust for pandemic timing} if, for example, countries were unable to gain political will to implement measures before evidence of a more local pandemic and/or if the pandemic was particularly difficult to control until cases reached a specific threshold.  We therefore consider 2 sensitivity analyses in (Table \ref{tbl.S1},  \ref{tbl.S2},  \ref{tbl.S3}): 1) assuming the US had a comparable mortality rate to a country 60 days after reaching 1 case per million (Scenario D) and 2) assuming the US had a comparable mortality rate to a country 60 days after reaching 5 deaths (Scenario E).  The former is generally lower than May estimates while the latter is higher.
+4. For excess all-cause mortality, we use 2015-2019 as comparison years by default, based on the CDC's excess death analysis.  In sensitivity analysis, we present results using 2018-2019 (Table \ref{tbl.S3}), which has a slightly lower estimate of excess all-cause mortality but similar overall patterns.
+
+\bigskip
+
+### Country-level data
+1. Spain adjusted its cumulative COVID-19 death toll downward (and then partially upward) during May and June 2020.  We smoothed this to be monotonic over this time period by setting cumulative deaths between May 23, 2020 and June 18, 2020 to be equal to the reported death toll on June 19, 2020 (Figure \ref{supp.fig.spain}).
+2. For recent periods in which some deaths may not yet have been reported, the United States CDC provides estimates of both unweighted deaths and deaths weighted to attempt to adjust for underreporting.  To be conservative in our estimate of excess deaths, we use the latter  (Figure \ref{supp.fig.weighting}).  In our excess all-cause mortality analyses, we use through week 30 (July 25, 2020).  While difficult to pinpoint a precise cut-off at which data were sufficiently complete for inclusion, both CDC reported deaths and COVID-19 attributed deaths (see "USA_2.csv") declined through August, suggesting decreases in reporting by at least week 32-33, and this was also the last time point at which data were available for Canada, allowing us to include in our excess all-cause mortality analysis.
+3. Several countries reported lower than average all-cause mortality in 2020 prior to the pandemic (Figure \ref{supp.weekly.deaths}).  For this reason, we start measurement of all-cause mortality after the pandemic began in a country ($\geq$ 5 cases per million recorded).
+4. We lacked sufficient data from Australia, Japan, and South Korea to do direct comparisons in our excess deaths analysis (Table 2 of main paper), but analyses of available data suggest that these low mortality countries did not experience meaningful excess mortality during 2020 (e.g. \href{https://www.abc.net.au/news/2020-06-23/coronavirus-australia-excess-deaths-data-analysis/12321162}{Australia}, \href{https://www.bloomberg.com/news/articles/2020-07-29/japan-dodged-surge-in-total-fatalities-during-peak-virus-month}{Japan}, \href{https://www.nytimes.com/interactive/2020/04/21/world/coronavirus-missing-deaths.html}{South Korea})
+5. France provided a \href{https://www.insee.fr/fr/statistiques/4487988?sommaire=4487854}{file} of estimated deaths beginning in February for the years 2018-2020.  Following \emph{The Economist} \href{https://github.com/TheEconomist/covid-19-excess-deaths-tracker}{GitHub}, we used France's \href{https://www.insee.fr/fr/information/4190491}{death registers} to fill in 2015-2017.  When we compared the death registers in 2018 to the first file, we found that the latter had lower deaths by week, and therefore to be conservative in estimates of excess deaths and following the approach of \emph{The Economist}, we only included deaths with a valid department code in "location of death." 
+
+\bigskip
+
+### Other
+1. Research letters are limited to 6 references, and cited papers must be peer-reviewed.  However, there were a number of other sources consulted, including on the potential impact of early interventions prior to a US surge (\href{https://www.medrxiv.org/content/10.1101/2020.05.15.20103655v2}{Pei et. al.}, \href{https://www.nytimes.com/2020/04/14/opinion/covid-social-distancing.html?searchResultPosition=2}{NYT}, \href{https://www.statnews.com/2020/06/19/faster-response-prevented-most-us-covid-19-deaths/}{StatNews}); on excess mortality (\emph{News:} \href{https://www.economist.com/graphic-detail/2020/07/15/tracking-covid-19-excess-deaths-across-countries}{Economist}, \href{https://www.nytimes.com/interactive/2020/04/21/world/coronavirus-missing-deaths.html}{NYT}, \href{https://ourworldindata.org/excess-mortality-covid}{Our World in Data}, \href{https://www.nature.com/articles/d41586-020-02497-w}{Nature News}; \emph{Academic:} \href{https://www.inet.ox.ac.uk/files/15.44-final-25-Aug-20-Aron-Muellbauer-Transatlantic-excess-mortality-comparison-r.pdf}{Aron and Muellbauer}, \href{https://jamanetwork.com/journals/jamainternalmedicine/fullarticle/2767980}{Weinberger et. al}, \href{https://jamanetwork.com/journals/jama/fullarticle/2768086}{Woolf et. al}, \href{https://www.medrxiv.org/content/10.1101/2020.08.31.20184036v3}{Stokes et. al.}).  Similar issues were also debated recently in NYT (\href{https://www.nytimes.com/2020/09/01/briefing/coronavirus-kenosha-massachusetts-your-tuesday-briefing.html}{link}, \href{https://www.nytimes.com/2020/09/05/opinion/sunday/covid-19-trump.html}{link}) and in  \href{https://www.vox.com/future-perfect/2020/9/9/21428769/covid-19-coronavirus-deaths-statistics-us-canada-europe}{Vox}.
+
+\bigskip
+
+```{r setup, include=FALSE}
+
+#### SET WORKING DIRECTORY ####
+  # main directory
+  wd = "~/Dropbox/Mortality/Public code/"
+  setwd(wd)
+  
+  # source global options
+  source("global_options.R")
+  source("./2 - Scripts/1_table1.R")
+  
+```
+
+\clearpage
+
+```{r notes2, fig = T, fig.pos = "H", fig.height = 2.5, fig.cap = "\\label{supp.fig.spain} Spanish COVID-19 deaths, with and without smoothing."}
+
+#### MAKE SPAIN GRAPH ####
+b = ggplot(e2 %>% filter(location_name=="Spain") %>% gather(var, value, count, count_orig) %>%
+             mutate(var2 = ifelse(var=="count_orig", "Original", "Smoothed")), 
+           aes(x = date, y = value, lty = var2)) + geom_line() + theme(text = element_text(family = "sans"), panel.grid.major = element_blank(), panel.grid.minor = element_blank(),
+        panel.background = element_blank(), axis.line = element_line(colour = "darkgrey")) + 
+  scale_color_manual(name = "", values = pal) + scale_linetype(name = "") + 
+  scale_y_continuous(labels = comma) + labs(x = "Week", y= "Deaths", title = "Spain") 
+
+b
+```
+
+
+```{r notes, results = 'tex', fig = T, fig.height = 2.5, fig.pos = "H", fig.cap = "\\label{supp.fig.weighting} Deaths by week with and without weighting for underreporting.  The line marked 2015-2019 represented the average over those years."}
+
+#### LOAD IN DATA ####
+setwd(paste0(wd, "/1 - Data"))
+
+# USA
+usa = read.csv("USA.csv") %>% group_by(Type, Week, Time.Period, Jurisdiction) %>% summarize(deaths = sum(Number.of.Deaths, na.rm = T), deaths_NA = sum(is.na(Number.of.Deaths))) %>% mutate(deaths = ifelse(Time.Period==2020, deaths, deaths/5)) 
+
+#### MAKE PLOT ####
+a = ggplot(usa %>% filter(Jurisdiction=="United States") %>% filter(Week <= 30) %>% mutate(go = paste(Time.Period, Type)), aes(x = Week, y = deaths, group = go, col = Time.Period, lty = Type)) + geom_line() + 
+  theme_opts + 
+  scale_color_manual(name = "", values = pal) + scale_linetype(name = "") + 
+  scale_y_continuous(labels = comma) + labs(x = "Week", y= "Deaths", title = "USA") 
+
+a
+```
+
+\clearpage
+
+
+
+```{r, results = 'tex', fig = T, fig.width = 9, fig.height = 8, fig.cap = "\\label{supp.weekly.deaths} All-cause mortality by country by week and year.  The comparison period is the average of 2015-2019, except in Germany, we used only years 2016-19 due data accessibility.  Early 2020 mortality is lower than average in e.g. Denmark, Germany, and Switzerland."}
+
+#### LOAD IN DATA ####
+setwd(paste0(wd, "/1 - Data"))
+load("countries_combined.RData")
+
+#### MAKE PLOT ####
+countries = countries %>% 
+  filter(Week>=2 & Week<=30) %>%
+  filter(location_name != "France" | Week>=10) %>% 
+  mutate(Time.Period = ifelse(Year==2020, "2020", "Comparison")) %>%
+  group_by(location_name, Week, Time.Period) %>% summarize(Deaths = mean(deaths))
+
+a = ggplot(countries, aes(x = Week, y = Deaths, group = Time.Period, col = Time.Period)) + geom_line() + facet_wrap(.~location_name, scales = "free") + theme_opts + scale_color_manual(values = pal, name = "Time Period") + labs(x = "Week", y="Deaths")
+
+a
+
+```
+
+
+\clearpage
+
+## Mortality Time Series
+
+```{r percapitaplot, results = 'tex', fig.pos = "H", fig = T, fig.width = 8, fig.height = 6, fig.cap="Estimates of per capita and total COVID-19 mortality from February-September 2020."}
+
+e3 = e2 %>% filter(date > as.Date("2020-02-13") & date <= "2020-09-19") %>%
+  mutate(col = ifelse(location_name %in% c("Australia", "South Korea", "Japan"),
+                      "3. Low mortality", "1. High mortality"),
+         col = ifelse(location_name == "United States of America", "4. US", col),
+         col = ifelse(location_name %in% c("Norway", "Finland", "Austria", "Denmark",
+                                           "Germany", "Israel", "Switzerland", "Canada"), "2. Moderate mortality", col),
+         country_lab = ifelse(date=="2020-09-19", iso2c, NA),
+         country_lab_roll = ifelse(date=="2020-09-12", iso2c, NA),)
+
+e2 = e3
+
+# rate per 100K
+
+# cumulative
+a1 = ggplot(e3, aes(x = date, y = rate_per_100k, group = location_name, col = col)) + 
+  geom_line() + scale_color_manual(values = pal, guide = F) + 
+  geom_point(aes(x = as.Date("2020-09-19"), y = (rate_per_100k)), col = "white", size = 5) +
+  geom_text(size = 3, aes(x = as.Date("2020-09-19"), y = rate_per_100k, label = country_lab)) + 
+  labs(x = "", y = "", title = "Cumulative deaths per 100K population") + 
+  scale_x_date(expand = c(0,10)) + 
+  scale_y_continuous(expand = c(0,0), lim = c(0, 90)) + geom_vline(xintercept = as.Date("2020-05-10"), lty = 2, col = "darkgrey") + geom_vline(xintercept = as.Date("2020-06-07"), lty = 2, col = "darkgrey") + theme_opts
+
+# 7-day average
+a2 = ggplot(e2 %>% filter(date<="2020-09-12"), aes(x = date, y = roll7, group = location_name, col = col)) + 
+  geom_line() + 
+  geom_point(aes(x = as.Date("2020-09-12"), y = roll7), col = "white", size = 5) +
+  geom_text(size = 3, aes(x = as.Date("2020-09-12"), 
+                y = roll7,
+                label = ifelse(location_name%in%c("United States of America", "Spain", "Israel", "France"), country_lab_roll, ""))) + 
+  scale_color_manual(guide = F, values = pal) + 
+  scale_x_date(expand = c(0,10)) + 
+  scale_y_continuous(labels = comma, expand = c(0,0)) +
+  labs(x = "", y = "", title = "Rolling 7-day average of deaths per 100K population") + geom_vline(xintercept = as.Date("2020-05-10"), lty = 2, col = "darkgrey") + geom_vline(xintercept = as.Date("2020-06-07"), lty = 2, col = "darkgrey") + theme_opts
+
+
+# total
+b1 = ggplot(e2 %>% filter(date<="2020-09-12"), aes(x = date, y = roll7_raw, group = location_name, col = col)) + 
+  geom_line() + 
+  geom_point(aes(x = as.Date("2020-09-12"), y = roll7_raw), col = "white", size = 5) +
+  geom_text(size = 3, aes(x = as.Date("2020-09-12"), 
+                y = roll7_raw,
+                label = ifelse(location_name%in%c("United States of America", "Spain", "France, Israel"), country_lab_roll, ""))) + 
+  scale_color_manual(guide = F, values = pal) + 
+  scale_x_date(expand = c(0,10)) + 
+  scale_y_continuous(labels = comma, expand = c(0,10)) +
+  labs(x = "", y = "", title = "Rolling 7-day average of deaths") + geom_vline(xintercept = as.Date("2020-05-10"), lty = 2, col = "darkgrey") + geom_vline(xintercept = as.Date("2020-06-07"), lty = 2, col = "darkgrey") + theme_opts
+
+b2 = ggplot(e2  %>% filter(date<="2020-09-12"), aes(x = date, 
+                   y = ifelse(roll7_raw==0, .01, roll7_raw), group = location_name, col = col)) + 
+  geom_line() + 
+  geom_point(aes(x = as.Date("2020-09-12"), y = roll7_raw), col = "white", size = 5) +
+  geom_text(size = 3, aes(x = as.Date("2020-09-12"), 
+                y = ifelse(roll7_raw==0, .01, roll7_raw),
+                label =  country_lab_roll)) + 
+  scale_color_manual(guide = F, values = pal) + 
+  scale_x_date(expand = c(0,10)) + 
+  scale_y_continuous(labels=comma_format(accuracy = 1),
+                     limits = c(.5, 3000), trans = "log10", expand = c(0,0)) +
+  labs(x = "", y = "", title = "Rolling 7-day average of deaths (log scale)")  + geom_vline(xintercept = as.Date("2020-05-10"), lty = 2, col = "darkgrey") + geom_vline(xintercept = as.Date("2020-06-07"), lty = 2, col = "darkgrey") + theme_opts
+
+
+b3 = ggplot(e2, aes(x = date, y = count, group = location_name, col = col)) + 
+  geom_line() + 
+    geom_point(aes(x = as.Date("2020-09-19"), y = (count)), col = "white", size = 5) +
+  geom_text(size = 3, aes(x = as.Date("2020-09-19"), y = count, label = country_lab)) +
+  scale_color_manual(guide = F, values = pal) + 
+  scale_x_date(expand = c(0,10)) + 
+  scale_y_continuous(labels = comma_format(), expand = c(0,10), lim = c(0,210000)) +
+  labs(x = "", y = "", title = "Cumulative deaths")  + geom_vline(xintercept = as.Date("2020-05-10"), lty = 2, col = "darkgrey") + geom_vline(xintercept = as.Date("2020-06-07"), lty = 2, col = "darkgrey") + theme_opts
+
+b4 = ggplot(e2, aes(x = date, y = count, group = location_name, col = col)) + 
+  geom_line() + 
+    geom_point(aes(x = as.Date("2020-09-19"), y = (count)), col = "white", size = 5) +
+  geom_text(size = 3, aes(x = as.Date("2020-09-19"), label = country_lab)) +
+  scale_color_manual(guide = F, values = pal) + 
+  scale_x_date(expand = c(0,10)) + 
+  scale_y_continuous(labels=comma_format(accuracy = 1),
+                     limits = c(.5, 250000), trans = "log10", expand = c(0,0)) +
+  labs(x = "", y = "", title = "Cumulative deaths (log scale)")  + geom_vline(xintercept = as.Date("2020-05-10"), lty = 2, col = "darkgrey") + geom_vline(xintercept = as.Date("2020-06-07"), lty = 2, col = "darkgrey") + theme_opts
+
+multiplot(a1, b3, a2, b1, cols = 2)
+```
+
+\pagebreak
+
+\begin{landscape}
+```{r}
+
+#### LOAD IN DATA ####
+setwd(paste0(wd, "/1 - Data"))
+df = read.csv("tbl1_out.csv") %>% dplyr::select(-X)
+
+names(df) = c("Country", "Date cases surpassed 1 per million", "(A)",
+                   "(B)", "(C)", "(D)", "(E)", "(A)", "(B)", "(C)", "(D)", "(E)")
+kable(df, digits = c(0,1,1,1,1,1,0,0,0,0,0),
+      format.args = list(big.mark = ",", scientific = FALSE),
+      position = "H", 
+      "latex", caption = "\\label{tbl.S1}Data on coronavirus disease 2019 (COVID-19) deaths are from February 13, 2020, through September 19, 2020 (n = 198 589 US deaths).  Death rates per 100K Scenarios: (A) full sample; (B) since May 10, 2020; (C) since June 7, 2020; (D) since 60 days after surpassing 1 case per million; (E) since 60 days after surpassing 5 COVID-19 deaths.  The last 5 columns assume that compared with the country in a given row, (A) the US had a comparable cumulative mortality rate; (B) the US mortality rate was unchanged until May 10 (n = 77 180 deaths), when it became comparable to the other country’s death rate; and (C) the US mortality rate was unchanged until June 7 (n = 109 143 deaths), when it became comparable to the other
+country’s death rate; (D) the US mortality rate was unchanged until 60 days after it reached 1 case per million (n = 68 934 deaths) when it became comparable to the other country's corresponding mortality rate; (E) the US mortality rate was unchanged until 60 days after it reached 5 deaths when it became comparable to the other country's corresponding mortality rate (n = 63 006 deaths).") %>%
+  kable_styling(latex_options =c("striped", "scale_down")) %>%
+  column_spec(2, width = "5em") %>%
+  add_header_above(c(" " = 2, "Deaths per 100K" = 5, 
+                     "Excess COVID-19 deaths vs. US (% of reported deaths)" = 5))
+```
+\end{landscape}
+
+\begin{landscape}
+```{r}
+
+#### LOAD IN DATA ####
+setwd(paste0(wd, "/1 - Data"))
+df = read.csv("tbl2_out.csv") %>% dplyr::select(-X)
+
+names(df) = c("Country", "(A)", "(B)", "(C)", "(D)", "(E)", "(A)", "(B)", "(C)", "(D)", "(E)")
+kable(df, digits = c(0,1,1,1,1,1,0,0,0,0,0),
+      format.args = list(big.mark = ",", scientific = FALSE),
+      position = "H", 
+      "latex", caption = "\\label{tbl.S2}Data on deaths are through July 25, 2020 (week 30, n = 235 610 excess US deaths compared with 145 546 reported COVID-19 deaths). Countries lacking
+publicly available all-cause mortality data through this time are omitted.
+Excess deaths were estimated by week, compared with 2015-2019 (except Germany: 2016-2019), beginning when a country surpassed 1 COVID-19 case per million population.  Death rates per 100K Scenarios: (A) full sample; (B) since May 10, 2020; (C) since June 7, 2020; (D) since 60 days after surpassing 1 case per million; (E) since 60 days after surpassing 5 COVID-19 deaths.  The last 5 columns assume that compared with the country in a given row, (A) the US had a comparable cumulative mortality rate; (B) the US mortality rate was unchanged until May 10 (n = 133 012 deaths), when it became comparable to the other country’s death rate; and (C) the US mortality rate was unchanged until June 7 (n = 171 659 deaths), when it became comparable to the other
+country’s death rate; (D) the US mortality rate was unchanged until 60 days after it reached 1 case per million (n = 118 366 deaths) when it became comparable to the other country's corresponding mortality rate; (E) the US mortality rate was unchanged until 60 days after it reached 5 deaths when it became comparable to the other country's corresponding mortality rate (n = 102 114 deaths).") %>%
+  kable_styling(latex_options =c("striped", "scale_down")) %>%
+  column_spec(2, width = "5em") %>%
+  add_header_above(c(" " = 1, "Deaths per 100K" = 5, 
+                     "Excess all-cause mortality vs. US (% of reported deaths)" = 5))
+```
+\end{landscape}
+
+
+\begin{landscape}
+```{r}
+
+#### LOAD IN DATA ####
+setwd(paste0(wd, "/1 - Data"))
+df = read.csv("tbl2_out_post_2017.csv") %>% dplyr::select(-X)
+
+names(df) = c("Country", "(A)", "(B)", "(C)", "(D)", "(E)", "(A)", "(B)", "(C)", "(D)", "(E)")
+kable(df, digits = c(0,1,1,1,1,1,0,0,0,0,0),
+      format.args = list(big.mark = ",", scientific = FALSE),
+      position = "H", 
+      "latex", caption = "\\label{tbl.S3}This repeats Table S2 using 2017-19 as comparison years.  Data on deaths are through July 25, 2020 (week 30, n = 212 702 excess US deaths compared with 145 546 reported COVID-19 deaths).  Excess deaths were estimated by week beginning when a country surpassed 1 COVID-19 case per million population.  Death rates per 100K Scenarios: (A) full sample; (B) since May 10, 2020; (C) since June 7, 2020; (D) since 60 days after surpassing 1 case per million; (E) since 60 days after surpassing 5 COVID-19 deaths.  The last 5 columns assume that compared with the country in a given row, (A) the US had a comparable cumulative mortality rate; (B) the US mortality rate was unchanged until May 10 (n = 122 626 deaths), when it became comparable to the other country’s death rate; and (C) the US mortality rate was unchanged until June 7 (n = 156 807 deaths), when it became comparable to the other
+country’s death rate; (D) the US mortality rate was unchanged until 60 days after it reached 1 case per million (n = 108 932 deaths) when it became comparable to the other country's corresponding mortality rate; (E) the US mortality rate was unchanged until 60 days after it reached 5 deaths when it became comparable to the other country's corresponding mortality rate (n = 93 905 deaths).") %>%
+  kable_styling(latex_options =c("striped", "scale_down")) %>%
+  column_spec(2, width = "5em") %>%
+  add_header_above(c(" " = 1, "Deaths per 100K" = 5, 
+                     "Excess all-cause mortality vs. US (% of reported deaths)" = 5))
+```
+\end{landscape}
+
+## Regressions
+
+### Table 1
+
+Let $d_i$ be the number of deaths in country $i$ over some time period, and $p_i$ be its population.  Assume we have countries $j = 1,...,n$ and $\mathbf{C}$ be a $(n-1) \times 1$ vector of country indicator variables with the US omitted as reference category.  We assume that $d_i \sim Pois(\lambda_i)$ and
+\begin{align}
+\mathbb{E}\left[log(\lambda_i)\right] = \beta_0 +  \bm{\beta}\mathbf{C} + log(p_i),
+\end{align}
+where $\bm{\beta}$ is $1 \times n-1$ and $\beta_j$ compares the death rate in country $j$ to the US.
+
+\bigskip
+
+### Table 2
+
+Let $d_{i,w,y}$ be the number of deaths in country $i$ at week $w$ in year $y$, and $p_i$ be its population.  Assume we have countries $j = 1,...,n$ and $\mathbf{C}$ be an $(n-1) \times 1$ vector of country indicator variables with the US omitted as reference category, $\mathbf{W}$ be a $(W-1) \times 1$ vector of week indicator variables, and $\mathbb{I}_{2020}$ be equal to 1 if the year is 2020 and 0 otherwise.  We assume that $d_{i,w,y} \sim Pois(\lambda_{i,w,y})$ and
+\begin{align}
+\mathbb{E}\left[log(\lambda_{i,w,y})\right] = \beta_0  + \bm{\beta}\mathbf{C} + \bm{\gamma}\mathbf{W} + 
+\delta \mathbb{I}_{2020}  + \bm{\alpha}\mathbf{C}\mathbb{I}_{2020}  + log(p_i),
+\end{align}
+where $\bm{\alpha}$ is $1 \times n-1$ and $\alpha_j$ compares excess 2020 mortality in country $j$ to in the US.\footnote{For estimation strategies, see Weinberger DM, Chen J, Cohen T, et al. Estimation of Excess Deaths Associated With the COVID-19 Pandemic in the United States, March to May 2020. JAMA Intern Med. Published online July 1, 2020. doi:10.1001/jamainternmed.2020.3391.}
+
+\bigskip
+
+## Data sources
+
+We accessed data on \textbf{COVID-19 deaths} from the \textbf{European Centre for Disease Prevention and Control COVID-19 database} (\href{https://www.ecdc.europa.eu/en/publications-data/download-todays-data-geographic-distribution-covid-19-cases-worldwide}{link}, accessed through R library \href{https://github.com/seandavi/sars2pack}{sars2pack}).  We accessed \textbf{all-cause mortality data} from country-specific sources (Table \ref{tbl1}).  We also referenced \emph{The Economist} \href{https://github.com/TheEconomist/covid-19-excess-deaths-tracker}{(link)} and \emph{The New York Times} \href{https://github.com/nytimes/covid-19-data/tree/master/excess-deaths}{(link)} excess death GitHubs and associated coverage.
+
+\begin{landscape}
+\begin{table}[]
+\footnotesize
+\begin{tabular}{p{.5in}p{1.5in}p{2in}p{1in}p{1.5in}p{1in}p{.5in}}
+\textbf{Country} & \textbf{Source}                                                                                                                                                      & \textbf{File}                                                                                                                                                              & \textbf{Included} & \textbf{Week format}                                       & \textbf{Notes}                                                           & \textbf{Link}                                                                                                                                                                                                                                                                                                                                                 \\
+Australia        & Australian Bureau of Statistics                                                                                                                                      & Provisional Mortality Statistics                                                                                                                                           & No                &                                                          & Data only available through May 2020                                     & \href{https://www.abs.gov.au/statistics/health/causes-death/provisional-mortality-statistics/latest-release}{link}                                                                                                                                                                                                                         \\
+Austria          & Statistics Austria                                                                                                                                                   & Age-specific death rates in Austria (excl. deaths abroad) by   calendar week                                                                                               & Yes               & Sunday-Saturday                                          &                                                                          & \href{https://statcube.at/statcube/opendatabase?id=derate\_kalwo}{link}  \\
+Belgium & Statbel &  Number of deaths per day, sex, age, region, province, district  &
+Yes & Daily data, aggregated by week (Monday-Sunday) & &  \href{https://statbel.fgov.be/en/open-data/number-deaths-day-sex-district-age}{link} \\
+Canada           & StatCan                                                                                                                                                              & Adjusted number of deaths, expected number of deaths and   estimates of excess mortality, by week                                                                          & Yes               & Monday-Sunday                                            &                                                                          & \href{https://www150.statcan.gc.ca/t1/tbl1/en/tv.action?pid=1310078401}{link}                                                                                                                                                                                                                                                              \\
+Denmark          & Statistics Denmark                                                                                                                                                   &  DODC1: Deaths per day (experimental statistics) by sex and age                                                                                                  & Yes               & Daily data, aggregated by week (Monday-Sunday)                                          &                                                                          & \href{https://www.statbank.dk/dodc2}{link}                                                                                                                                                                                                                                                                                                 \\
+Finland          & Statistics Finland                                                                                                                                                   & 12ng -- Deaths by week according to sex, age and region (Rapid estimate), 1990W01-2020W37*                                                                               & Yes               & Sunday-Saturday                                          &                                                                          & \href{https://pxnet2.stat.fi/PXWeb/pxweb/en/Kokeelliset\_tilastot/Kokeelliset\_tilastot\_\_vamuu\_koke/statfin\_vamuu\_pxt\_12ng.px/}{link}                                                                                                                                                                                                \\
+France           & Insée                                                                                                                                                                & Téléchargement des fichiers des décès quotidiens                                                                                                                           & Yes               & Daily data, aggregated by week (Monday-Sunday) & Economist GitHub approach for all-cause mortality 2015-17                    & \href{https://www.insee.fr/fr/statistiques/4487988?sommaire=4487854}{link},
+\href{https://www.insee.fr/fr/information/4190491}{link}, \href{https://github.com/TheEconomist/covid-19-excess-deaths-tracker}{link}                                                                                                                                                               \\
+Germany          & DeStatis                                                                                                                                                             & Sterbefälle - Fallzahlen nach Tagen, Wochen, Monaten,   Altersgruppen und Bundesländern für Deutschland 2016 - 2020                                                        & Yes               & Daily data, aggregated by week (Monday-Sunday) & Only available starting in 2016                                          & \href{https://www.destatis.de/DE/Themen/Gesellschaft-Umwelt/Bevoelkerung/Sterbefaelle-Lebenserwartung/Tabellen/sonderauswertung-sterbefaelle.html}{link}                                                                                                                                                                                   \\
+Israel           & Ministry of Health                                                                                                                                                   & Weekly Epidemiological Reports                                                                                                                                      & Yes               & Reports dated Saturday                                          & Received translation assistance                                          & \href{https://www.health.gov.il/UnitsOffice/HD/PH/epidemiology/Pages/epidemiology\_report.aspx?WPID=WPQ7\&PN=7\&fbclid=IwAR2sz9mHp4lpB8rXm0gdvIoiftfnmmHqSwra8IWl7voMw1mmpffzWrRG774}{link}                                                                                                                                                \\
+Italy            & Istat                                                                                                                                                                & 10 August 2020 – Male, female and total deaths                                                                                                                             & No                &                                                          & Data only available through June 2020                                    & \href{https://www.istat.it/en/archivio/240106}{link}                                                                                                                                                                                                                                                                                       \\
+Japan            & e-Stat                                                                                                                                                               & Current Population Survey / Vital   Statistics                                                                                                                             & No                &                                                          & Data only available through July 2, 2020                                 & \href{https://www.e-stat.go.jp/stat-search/files?page=1\&layout=dataset\&toukei=00450011\&tstat=000001028897\&cycle=1\&tclass1=000001053058\&tclass2=000001053059\&metadata=1\&data=1}{link}                                                                                                                                               \\
+Netherlands      & StatLine                                                                                                                                                             & Deaths registered weekly, by sex and age                                                                                                                                   & Yes               & Sunday-Saturday                                          &                                                                          & \href{https://opendata.cbs.nl/statline/portal.html?_la=en&_catalog=CBS&tableId=70895ENG&_theme=1079}{link}                                                                                                                                                                                                                                            \\
+Norway           & Statistics Norway                                                                                                                                                    & 07995: Deaths, by sex, age and week. Preliminary figures 2000 - 2020                                                                                                       & Yes               & Sunday-Saturday                                          &                                                                          & \href{https://www.ssb.no/en/statbank/table/07995/}{link}                                                                                                                                                                                                                                                                                   \\
+South Korea      & Statistics Korea                                                                                                                                                     & Vital statistics (births/deaths)                                                                                                                                           & No                &                                                          & Received translation assistance; data only available monthly & \href{http://kosis.kr/statisticsList/statisticsListIndex.do?menuId=M\_01\_01\&vwcd=MT\_ZTITLE\&parmTabId=M\_01\_01\#SelectStatsBoxDiv}{link}                                                                                                                                                                                               \\
+Spain            & Instituto Nacional de Estadística                                                                                                                                    & Estimate of Weekly Deaths                                                                                                                                                  & Yes               & Sunday-Saturday                                          &                                                                          & \href{https://www.ine.es/en/experimental/defunciones/experimental_defunciones.htm}{link}                                                                                                                                                                                                                                                                       \\
+Sweden           & Statistics Sweden                                                                                                                                                    & Preliminary statistics on deaths in Sweden                                                                                                                                 &                   & Daily data, aggregated by week (Monday-Sunday) &                                                                          & \href{https://www.scb.se/en/About-us/news-and-press-releases/statistics-sweden-to-publish-preliminary-statistics-on-deaths-in-sweden/}{link}                                                                                                                                                                                               \\
+Switzerland      & Federal Statistics Office                                                                                                                                            & Weekly number of deaths, 2020 \& 2010-2019                                                                                                                                 &                   & Sunday-Saturday                                          &                                                                          & \href{https://www.bfs.admin.ch/bfs/en/home/statistics/health/state-health/mortality-causes-death.html}{link}                                                                                                                                                                                                                               \\
+United Kingdom   & Office of National Statistics (GB), National Records of Scotland, Northern Ireland Statistics and Research Agency & Deaths registered weekly in England and Wales, provisional, Deaths involving coronavirus (COVID-19) in Scotland, Weekly death registrations in Northern Ireland, 2020. & Yes & Sunday-Saturday, Monday-Sunday                                          &                                                                          &  \href{https://www.ons.gov.uk/peoplepopulationandcommunity/birthsdeathsandmarriages/deaths/datasets/weeklyprovisionalfiguresondeathsregisteredinenglandandwales}{link},   \href{https://www.nrscotland.gov.uk/covid19stats}{link},   \href{https://www.nisra.gov.uk/publications/weekly-deaths}{link} \\
+United States    & Centers for Disease Control and Prevention                                                                                                                           & Deaths involving coronavirus disease 2019   (COVID-19), pneumonia, and influenza reported to NCHS by week ending date,   United States. Week ending 2/1/2020 to 9/19/2020. & No                & Monday-Sunday                                            &                                                                          & \href{https://www.cdc.gov/nchs/nvss/vsrr/covid19/index.htm}{link}                                                                                                                                                                                                                                              
+                        
+\end{tabular}
+\caption{Data sources for all-cause mortality.  The "Included" column indicates whether available data met inclusion criteria; if not, this is explained in the "Notes" column.  Due to differences in reporting, week definition varies slightly.}
+\label{tbl1}
+\end{table}
+
+\end{landscape}
+
+\bigskip
+
