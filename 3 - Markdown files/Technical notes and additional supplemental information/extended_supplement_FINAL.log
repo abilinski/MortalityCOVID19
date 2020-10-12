@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.21 (TeX Live 2020) (preloaded format=pdflatex 2020.4.7)  12 OCT 2020 04:58
+This is pdfTeX, Version 3.14159265-2.6-1.40.21 (TeX Live 2020) (preloaded format=pdflatex 2020.4.7)  12 OCT 2020 06:44
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -820,44 +820,44 @@ LaTeX Font Info:    Font shape `U/msb/m/n' will be
 [1{/usr/local/texlive/2020/texmf-var/fonts/map/pdftex/updmap/pdftex.map}
 
 ] [2]
-<extended_supplement_FINAL_files/figure-latex/spain-1.pdf, id=81, 453.695pt x 1
+<extended_supplement_FINAL_files/figure-latex/spain-1.pdf, id=82, 453.695pt x 1
 68.63pt>
 File: extended_supplement_FINAL_files/figure-latex/spain-1.pdf Graphic file (ty
 pe pdf)
 <use extended_supplement_FINAL_files/figure-latex/spain-1.pdf>
 Package pdftex.def Info: extended_supplement_FINAL_files/figure-latex/spain-1.p
-df  used on input line 347.
+df  used on input line 352.
 (pdftex.def)             Requested size: 453.6939pt x 168.62958pt.
-<extended_supplement_FINAL_files/figure-latex/US_weights-1.pdf, id=82, 453.695p
+<extended_supplement_FINAL_files/figure-latex/US_weights-1.pdf, id=83, 453.695p
 t x 168.63pt>
 File: extended_supplement_FINAL_files/figure-latex/US_weights-1.pdf Graphic fil
 e (type pdf)
 <use extended_supplement_FINAL_files/figure-latex/US_weights-1.pdf>
 Package pdftex.def Info: extended_supplement_FINAL_files/figure-latex/US_weight
-s-1.pdf  used on input line 354.
+s-1.pdf  used on input line 359.
 (pdftex.def)             Requested size: 453.6939pt x 168.62958pt.
 [3
 
  <./extended_supplement_FINAL_files/figure-latex/spain-1.pdf> <./extended_suppl
 ement_FINAL_files/figure-latex/US_weights-1.pdf>]
-<extended_supplement_FINAL_files/figure-latex/excess-1.pdf, id=101, 634.37pt x 
+<extended_supplement_FINAL_files/figure-latex/excess-1.pdf, id=102, 634.37pt x 
 561.09625pt>
 File: extended_supplement_FINAL_files/figure-latex/excess-1.pdf Graphic file (t
 ype pdf)
 <use extended_supplement_FINAL_files/figure-latex/excess-1.pdf>
 Package pdftex.def Info: extended_supplement_FINAL_files/figure-latex/excess-1.
-pdf  used on input line 364.
+pdf  used on input line 369.
 (pdftex.def)             Requested size: 469.76523pt x 415.50438pt.
 [4
 
  <./extended_supplement_FINAL_files/figure-latex/excess-1.pdf>]
-<extended_supplement_FINAL_files/figure-latex/deaths-1.pdf, id=113, 555.07375pt
+<extended_supplement_FINAL_files/figure-latex/deaths-1.pdf, id=114, 555.07375pt
  x 482.80376pt>
 File: extended_supplement_FINAL_files/figure-latex/deaths-1.pdf Graphic file (t
 ype pdf)
 <use extended_supplement_FINAL_files/figure-latex/deaths-1.pdf>
 Package pdftex.def Info: extended_supplement_FINAL_files/figure-latex/deaths-1.
-pdf  used on input line 379.
+pdf  used on input line 384.
 (pdftex.def)             Requested size: 469.75674pt x 408.59496pt.
 [5
 
@@ -871,7 +871,7 @@ pdf  used on input line 379.
 
 ]
 LaTeX Font Info:    Trying to load font information for U+fplmbb on input line 
-549.
+554.
 (/usr/local/texlive/2020/texmf-dist/tex/latex/psnfss/ufplmbb.fd
 File: ufplmbb.fd 2003/10/30 Fontinst v1.914 font definitions for U/fplmbb.
 ) [9
@@ -879,89 +879,89 @@ File: ufplmbb.fd 2003/10/30 Fontinst v1.914 font definitions for U/fplmbb.
 ]
 
 LaTeX Warning: No positions in optional float specifier.
-               Default added (so using `tbp') on input line 589.
+               Default added (so using `tbp') on input line 594.
 
 
-Underfull \hbox (badness 6461) in paragraph at lines 600--600
+Underfull \hbox (badness 6461) in paragraph at lines 605--605
 []|\T1/ppl/m/n/8 (+20) Economist GitHub
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 600--600
+Underfull \hbox (badness 10000) in paragraph at lines 605--605
 \T1/ppl/m/n/8 (+20) ap-proach for all-
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 600--600
+Underfull \hbox (badness 10000) in paragraph at lines 605--605
 \T1/ppl/m/n/8 (+20) cause mor-tal-ity
  []
 
 
-Underfull \hbox (badness 5985) in paragraph at lines 602--602
+Underfull \hbox (badness 5985) in paragraph at lines 607--607
 []|\T1/ppl/m/n/8 (+20) Sterbefälle - Fal-lzahlen nach Tagen,
  []
 
 
-Overfull \hbox (6.9845pt too wide) in paragraph at lines 606--606
+Overfull \hbox (6.9845pt too wide) in paragraph at lines 611--611
 []|\T1/ppl/m/n/8 (-20) Netherlands| 
  []
 
 
-Overfull \hbox (5.68314pt too wide) in paragraph at lines 611--611
+Overfull \hbox (5.68314pt too wide) in paragraph at lines 616--616
 []|\T1/ppl/m/n/8 (-20) Switzerland| 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 612--612
+Underfull \hbox (badness 10000) in paragraph at lines 617--617
 []|\T1/ppl/m/n/8 (+20) United
  []
 
 
-Underfull \hbox (badness 2538) in paragraph at lines 612--612
+Underfull \hbox (badness 2538) in paragraph at lines 617--617
 []|\T1/ppl/m/n/8 (+20) Office of Na-tional Statis-tics
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 612--612
+Underfull \hbox (badness 10000) in paragraph at lines 617--617
 []|\T1/ppl/m/n/8 (+20) Sunday-Saturday, Monday-
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 613--613
+Underfull \hbox (badness 10000) in paragraph at lines 618--618
 []|\T1/ppl/m/n/8 (+20) United
  []
 
 
-Underfull \hbox (badness 1694) in paragraph at lines 613--613
+Underfull \hbox (badness 1694) in paragraph at lines 618--618
 []|\T1/ppl/m/n/8 (+20) Centers for Dis-ease Con-trol
  []
 
 
-Underfull \hbox (badness 1769) in paragraph at lines 613--613
+Underfull \hbox (badness 1769) in paragraph at lines 618--618
 []|\T1/ppl/m/n/8 (+20) Deaths in-volv-ing coro-n-avirus dis-ease
  []
 
 
-Overfull \hbox (11.72995pt too wide) in paragraph at lines 591--616
+Overfull \hbox (11.72995pt too wide) in paragraph at lines 596--621
 [][] 
  []
 
 
-LaTeX Warning: Float too large for page by 48.74467pt on input line 618.
+LaTeX Warning: Float too large for page by 48.74467pt on input line 623.
 
 [10]
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 624.
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 624.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 629.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 629.
 (./extended_supplement_FINAL.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 624.
-Package atveryend Info: Empty hook `AtEndAfterFileList' on input line 624.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 629.
+Package atveryend Info: Empty hook `AtEndAfterFileList' on input line 629.
  ) 
 Here is how much of TeX's memory you used:
- 18300 strings out of 480608
- 271828 string characters out of 5903631
+ 18306 strings out of 480608
+ 271873 string characters out of 5903631
  623795 words of memory out of 5000000
  33548 multiletter control sequences out of 15000+600000
- 622855 words of font info for 284 fonts, out of 8000000 for 9000
+ 623177 words of font info for 288 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  48i,12n,46p,1549b,489s stack positions out of 5000i,500n,10000p,200000b,80000s
 pdfTeX warning (dest): name{Hfootnote.3} has been referenced but does not exi
@@ -984,10 +984,10 @@ onts/type1/public/lm/lmmib10.pfb></usr/local/texlive/2020/texmf-dist/fonts/type
 1/urw/palatino/uplb8a.pfb></usr/local/texlive/2020/texmf-dist/fonts/type1/urw/p
 alatino/uplr8a.pfb></usr/local/texlive/2020/texmf-dist/fonts/type1/urw/palatino
 /uplri8a.pfb>
-Output written on extended_supplement_FINAL.pdf (10 pages, 597766 bytes).
+Output written on extended_supplement_FINAL.pdf (10 pages, 598010 bytes).
 PDF statistics:
- 276 PDF objects out of 1000 (max. 8388607)
- 240 compressed objects within 3 object streams
+ 277 PDF objects out of 1000 (max. 8388607)
+ 241 compressed objects within 3 object streams
  50 named destinations out of 1000 (max. 500000)
  30845 words of extra memory for PDF output out of 35830 (max. 10000000)
 

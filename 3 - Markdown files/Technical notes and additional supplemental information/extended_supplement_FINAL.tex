@@ -180,12 +180,12 @@ met (i.e., adjustment for pandemic
 timing)}\label{difference-in-deaths-if-matching-after-some-criteria-is-met-i.e.-adjustment-for-pandemic-timing}}
 
 Let time \(T_i\) be the time that country \(i\) meets some criteria
-(i.e., 60 days after \(\geq\) 1 case per 100,000 population). Let \(T\)
-be the time that the US meets the criteria. Letting \(r_{iT_i}\) be the
-death rate per 100,000 in a comparison country between time \(T_i\) and
-the end of the reporting period and \(d_{T}\) be US deaths until time
-\(T\), we estimate potential difference in deaths since time \(T\):
-\begin{align}
+(e.g., 60 days after \(\geq\) 1 case per 1,000,000 population). Let
+\(T\) be the time that the US meets the criteria. Letting \(r_{iT_i}\)
+be the death rate per 100,000 in a comparison country between time
+\(T_i\) and the end of the reporting period and \(d_{T}\) be US deaths
+until time \(T\), we estimate potential difference in deaths since time
+\(T\): \begin{align}
 d - \left(d_{T} + \left(r_{iT_i}/100,000\right)*p\right)
 \end{align}
 
@@ -200,53 +200,57 @@ d - \left(d_{T} + \left(r_{iT_i}/100,000\right)*p\right)
 \tightlist
 \item
   There has been debate in the epidemiological community regarding
-  whether to adjust deaths per capita early in the pandemic. Given a
-  fixed number introductions, we do not expect that early in a pandemic,
-  a virus would spread faster in a larger population than in a smaller
-  one. Nevertheless, we defer to per capita measures due to the
-  geographic and demographic diversity of the United States that renders
-  it likely more similar to a combination of small countries than a
-  single countries, and as viral introductions may be proportional to
-  population. In addition, this measure may better capture the pandemic
-  measure along other dimensions (e.g.~perceived social impact).
+  whether focus on total deaths or deaths per capita early in the
+  pandemic. Given a fixed number introductions, we do not expect that
+  early in a pandemic, a virus would spread faster in a larger
+  population than in a smaller one. Nevertheless, we defer to per capita
+  measures due to the geographic and demographic diversity of the United
+  States that renders it likely more similar to a combination of small
+  countries than a single countries, and as viral introductions may be
+  proportional to population, especially over time. In addition, this
+  measure may better capture the pandemic's relative impact in terms of
+  general perceptions and disruption.
 \item
   Due to large sample sizes, traditional statistical inference around
-  differences in mortality rates often has narrow confidence intervals
+  differences in mortality rates often have narrow confidence intervals
   and meets traditional standards for ``statistical significance'' (see
   e.g.,
   \href{https://jamanetwork.com/journals/jamainternalmedicine/fullarticle/2767980}{Weinberger et. al}).
   As our other outcome measures (e.g.~excess deaths) are invertible
   monotone transformation of mortality rates, statistical conclusions
   about the former apply to the latter. However, other sources of
-  uncertainty affect our results more than statistical randomness, which
-  we aim to capture in sensitivity analyses.
+  uncertainty affect our results more than statistical randomness, as we
+  show in sensitivity analyses.
 \item
-  Our main analysis focuses on \emph{calendar time}, assuming that the
-  US death rate became comparable to another country's death rate after
-  a particular point in time. We consider both May and June for this
-  change, allowing approximately 2-3 months for responses after cases
-  and deaths emerged in the United States. We use calendar time as our
-  main specification because 1) the pandemic affected most countries at
-  similar times (Table \ref{tbl.S1}), and 2) to the extent that there
-  were differences, countries are able to react to the experiences of
-  other peer countries (e.g.~by responding earlier even if the pandemic
-  affected them later). However, we may want to
+  Our main analyses focus on \emph{calendar time}, assessing the
+  difference in deaths if the US death rate became comparable to another
+  country's death rate after a particular time. We consider both May and
+  June for this shift, allowing 1-2 months for policy response beginning
+  in March and assuming \(\sim 1\) month to death from exposure. We use
+  calendar time as our main specification because 1) the pandemic
+  affected most countries at similar times (Table \ref{tbl.S1}), and 2)
+  to the extent that there were differences, countries were able to
+  react to the experiences of peer countries (e.g.~by responding earlier
+  even if the pandemic affected them later). However, we may want to
   \emph{adjust for pandemic timing} if, for example, countries were
   unable to gain political will to implement measures before evidence of
   a more local pandemic and/or if the pandemic was particularly
   difficult to control until cases reached a specific threshold. We
-  therefore consider 2 sensitivity analyses in (Table \ref{tbl.S1},
+  therefore considered 2 sensitivity analyses in (Table \ref{tbl.S1},
   \ref{tbl.S2}, \ref{tbl.S3}): 1) assuming the US had a comparable
   mortality rate to a country 60 days after reaching 1 case per million
   (Scenario D) and 2) assuming the US had a comparable mortality rate to
-  a country 60 days after reaching 5 deaths (Scenario E). The former is
-  generally lower than May estimates while the latter is higher.
+  a country 60 days after reaching 5 deaths (Scenario E). The former
+  estimates fewer deaths averted than May estimates while the latter
+  estimates more.
 \item
   For excess all-cause mortality, we use 2015-2019 as comparison years
-  by default, based on the CDC's excess death analysis. In sensitivity
-  analysis, we present results using 2018-2019 (Table \ref{tbl.S3}),
-  which has a slightly lower estimate of excess all-cause mortality but
-  similar overall patterns.
+  by default, based on the CDC's excess death
+  \href{https://www.cdc.gov/nchs/nvss/vsrr/covid19/excess_deaths.htm#data-tables}{estimates}.
+  In sensitivity analysis, we also presented results using 2018-2019
+  (Table \ref{tbl.S3}), which has a slightly lower estimate of excess
+  all-cause mortality (217K vs.~235K) but similar overall comparisons
+  across countries.
 \end{enumerate}
 
 \bigskip
@@ -272,15 +276,16 @@ d - \left(d_{T} + \left(r_{iT_i}/100,000\right)*p\right)
   analyses, we use through week 30 (July 25, 2020). While difficult to
   pinpoint a precise cut-off at which data were sufficiently complete
   for inclusion, both CDC reported deaths and COVID-19 attributed deaths
-  (see ``USA\_2.csv'') declined through August, suggesting decreases in
-  reporting by at least week 32-33, and this was also the last time
-  point at which data were available for Canada, allowing us to include
-  in our excess all-cause mortality analysis.
+  (see ``USA\_2.csv'') began to decline through August despite increases
+  in deaths from COVID Tracking Project, suggesting ddelays in reporting
+  by at least week 32-33. Week 30 was also the last time point at which
+  data were available for Canada, allowing us to include the country our
+  excess all-cause mortality analysis.
 \item
   Several countries reported lower than average all-cause mortality in
   2020 prior to the pandemic (Figure \ref{supp.weekly.deaths}). For this
   reason, we start measurement of all-cause mortality after the pandemic
-  began in a country (\(\geq\) 5 cases per million recorded).
+  began in a country (\(\geq\) 1 case per million, generally week 9-10).
 \item
   We lacked sufficient data from Australia, Japan, and South Korea to do
   direct comparisons in our excess deaths analysis (Table 2 of main

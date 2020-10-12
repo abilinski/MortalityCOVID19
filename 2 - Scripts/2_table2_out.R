@@ -23,7 +23,7 @@ countries2 = countries %>% left_join(e_cases %>% ungroup() %>% filter(subset=="c
                                               week_sens1 =  epiweek(date_1_per_mil + 60)) %>% 
                                        dplyr::select(location_name, start_week, week_sens1)) %>%
   filter(Week >= start_week & Week <= end_week) %>% 
-  filter(Year>=2018) %>%
+  #filter(Year>=2018) %>%
   left_join(e1 %>% group_by(location_name) %>% summarize(population_2019 = population_2019[1])) %>%
   mutate(Time.Period = ifelse(Year==2020, "2020", "Comparison")) %>% 
   # reorder factors so that US is first
@@ -79,7 +79,7 @@ for(i in 1:length(weeks)){
                      mutate(week_start = epiweek(date_5 + 60))) %>% mutate(week = "sens2")
   
 # reshape data frame
-US_max = 235610.2 #212702
+US_max = 235610.2 #212702, if 2018-19
 tbl2 = est_week_out %>% bind_rows(temp2) %>% bind_rows(temp3) %>%
   gather(var, value, excess, total) %>%
   mutate(lab = paste0(var, week),

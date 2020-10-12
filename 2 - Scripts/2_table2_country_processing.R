@@ -65,10 +65,23 @@ finland = read.csv("finland.csv") %>%
 
 # Define function that extracts dept_code from France's historical deaths register
 # We use this as a 'check' on valid deaths
+# as France_2018.csv has slightly higher deaths than France_2018To_2020.csv
+# for corresponding weeks
 # Pushes total closer to aggregated version in French file
 # But difference is small
 # Taken from Economist GitHub
 get_french_dept_code <- function(x) { dept_code <- substr(x,1,nchar(x)-3) }
+
+#france18 = read.csv("France_2018.csv") %>% 
+#  mutate(date = as.Date(as.character(datedeces), format = "%Y%m%d"),
+#         chk = get_french_dept_code(lieudeces),
+#         chk2 = chk%in%c(1:95, "2a", "2b", 971:974, 976),
+#         Week = epiweek(date),
+#         Year = year(date)) %>% filter(Year%in%c(2018)) 
+#  f1 = france18 %>% group_by(Week) %>% summarize(d = n())
+#  f2 = france18 %>% filter(chk2) %>% group_by(Week) %>% summarize(d = n())
+#  View(france %>% filter(Year==2018) %>% left_join(f1, "Week") %>% left_join(f2, "Week"))
+# Approach is slightly conservative, can see when running code on line 83.
 
 france1 = read.csv("France_2015.csv") %>% 
   bind_rows(read.csv("France_2016.csv")) %>%
