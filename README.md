@@ -4,9 +4,11 @@
 and 18 Comparison Countries](https://jamanetwork.com/journals/jama/issue/324/5), published in <em>JAMA</em> on October 12, 2020. 
 
 - [Replication code](https://github.com/abilinski/MortalityCOVID19/tree/main/2%20-%20Scripts)
-- [Supplement]
-- [Technical notes and additional sensitivity analyses]
+- [Supplement](https://github.com/abilinski/MortalityCOVID19/blob/main/3%20-%20Markdown%20files/Supplement/supplement_FINAL.pdf) and [Markdown file](https://github.com/abilinski/MortalityCOVID19/blob/main/3%20-%20Markdown%20files/Supplement/supplement_FINAL.Rmd)
+- [Technical notes and additional sensitivity analyses](https://github.com/abilinski/MortalityCOVID19/blob/main/3%20-%20Markdown%20files/Technical%20notes%20and%20additional%20supplemental%20information/extended_supplement_FINAL.pdf) and [Markdown file](https://github.com/abilinski/MortalityCOVID19/blob/main/3%20-%20Markdown%20files/Technical%20notes%20and%20additional%20supplemental%20information/extended_supplement_FINAL.Rmd)
+
+Direct questions to Alyssa Bilinski ([abilinski@g.harvard.edu](abilinski@g.harvard.edu)).
 
   </font>
   
-  <img src="https://github.com/abilinski/spark_control/blob/master/content/model_diagram.png" alt="Model diagram" style="width:400px;" class="center"/>
+  <img src="https://github.com/abilinski/MortalityCOVID19/blob/main/3%20-%20Markdown%20files/Technical%20notes%20and%20additional%20supplemental%20information/extended_supplement_FINAL_files/figure-latex/percapitaplot-1.pdf" alt="Mortality plot" style="width:400px;" class="center"/>
