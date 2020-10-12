@@ -104,7 +104,7 @@ d - \left(d_{T} + \left(r_{iT_i}/100,000\right)*p\right)
 ### Analytic approach
 1. There has been debate in the epidemiological community regarding whether to adjust deaths per capita early in the pandemic.  Given a fixed number introductions, we do not expect that early in a pandemic, a virus would spread faster in a larger population than in a smaller one.  Nevertheless, we defer to per capita measures due to the geographic and demographic diversity of the United States that renders it likely more similar to a combination of small countries than a single countries, and as viral introductions may be proportional to population.  In addition, this measure may better capture the pandemic measure along other dimensions (e.g. perceived social impact).
 2. Due to large sample sizes, traditional statistical inference around differences in mortality rates often has narrow confidence intervals and meets traditional standards for "statistical significance" (see e.g., \href{https://jamanetwork.com/journals/jamainternalmedicine/fullarticle/2767980}{Weinberger et. al}).  As our other outcome measures (e.g. excess deaths) are invertible monotone transformation of mortality rates, statistical conclusions about the former apply to the latter.  However, other sources of uncertainty affect our results more than statistical randomness, which we aim to capture in sensitivity analyses.
-3. We consider a number of sensitivity analyses in the tables below.  Our main analysis focuses on \emph{calendar time}, assuming that the US death rate became comparable to another country's death rate after a particular point in time.  We consider both May and June for this change, allowing approximately 2-3 months for responses after cases and deaths emerged in the United States.  We use calendar time as our main specification because 1) the pandemic affected most countries at similar times (Table \ref{tbl.S1}), and 2) to the extent that there were differences, countries are able to react to the experiences of other peer countries (e.g. by responding earlier even if the pandemic affected them later).  However, we may want to \emph{adjust for pandemic timing} if, for example, countries were unable to gain political will to implement measures before evidence of a more local pandemic and/or if the pandemic was particularly difficult to control until cases reached a specific threshold.  We therefore consider 2 sensitivity analyses in (Table \ref{tbl.S1},  \ref{tbl.S2},  \ref{tbl.S3}): 1) assuming the US had a comparable mortality rate to a country 60 days after reaching 1 case per million (Scenario D) and 2) assuming the US had a comparable mortality rate to a country 60 days after reaching 5 deaths (Scenario E).  The former is generally lower than May estimates while the latter is higher.
+3. Our main analysis focuses on \emph{calendar time}, assuming that the US death rate became comparable to another country's death rate after a particular point in time.  We consider both May and June for this change, allowing approximately 2-3 months for responses after cases and deaths emerged in the United States.  We use calendar time as our main specification because 1) the pandemic affected most countries at similar times (Table \ref{tbl.S1}), and 2) to the extent that there were differences, countries are able to react to the experiences of other peer countries (e.g. by responding earlier even if the pandemic affected them later).  However, we may want to \emph{adjust for pandemic timing} if, for example, countries were unable to gain political will to implement measures before evidence of a more local pandemic and/or if the pandemic was particularly difficult to control until cases reached a specific threshold.  We therefore consider 2 sensitivity analyses in (Table \ref{tbl.S1},  \ref{tbl.S2},  \ref{tbl.S3}): 1) assuming the US had a comparable mortality rate to a country 60 days after reaching 1 case per million (Scenario D) and 2) assuming the US had a comparable mortality rate to a country 60 days after reaching 5 deaths (Scenario E).  The former is generally lower than May estimates while the latter is higher.
 4. For excess all-cause mortality, we use 2015-2019 as comparison years by default, based on the CDC's excess death analysis.  In sensitivity analysis, we present results using 2018-2019 (Table \ref{tbl.S3}), which has a slightly lower estimate of excess all-cause mortality but similar overall patterns.
 
 \bigskip
@@ -138,7 +138,7 @@ d - \left(d_{T} + \left(r_{iT_i}/100,000\right)*p\right)
 
 \clearpage
 
-```{r notes2, fig = T, fig.pos = "H", fig.height = 2.5, fig.cap = "\\label{supp.fig.spain} Spanish COVID-19 deaths, with and without smoothing."}
+```{r spain, fig = T, fig.pos = "H", fig.height = 2.5, fig.cap = "\\label{supp.fig.spain} Spanish COVID-19 deaths, with and without smoothing."}
 
 #### MAKE SPAIN GRAPH ####
 b = ggplot(e2 %>% filter(location_name=="Spain") %>% gather(var, value, count, count_orig) %>%
@@ -152,7 +152,7 @@ b
 ```
 
 
-```{r notes, results = 'tex', fig = T, fig.height = 2.5, fig.pos = "H", fig.cap = "\\label{supp.fig.weighting} Deaths by week with and without weighting for underreporting.  The line marked 2015-2019 represented the average over those years."}
+```{r US_weights, results = 'tex', fig = T, fig.height = 2.5, fig.pos = "H", fig.cap = "\\label{supp.fig.weighting} Deaths by week with and without weighting for underreporting.  The line marked 2015-2019 represented the average over those years."}
 
 #### LOAD IN DATA ####
 setwd(paste0(wd, "/1 - Data"))
@@ -161,7 +161,7 @@ setwd(paste0(wd, "/1 - Data"))
 usa = read.csv("USA.csv") %>% group_by(Type, Week, Time.Period, Jurisdiction) %>% summarize(deaths = sum(Number.of.Deaths, na.rm = T), deaths_NA = sum(is.na(Number.of.Deaths))) %>% mutate(deaths = ifelse(Time.Period==2020, deaths, deaths/5)) 
 
 #### MAKE PLOT ####
-a = ggplot(usa %>% filter(Jurisdiction=="United States") %>% filter(Week <= 30) %>% mutate(go = paste(Time.Period, Type)), aes(x = Week, y = deaths, group = go, col = Time.Period, lty = Type)) + geom_line() + 
+a = ggplot(usa %>% filter(Jurisdiction=="United States") %>% filter(Week <= 33) %>% mutate(go = paste(Time.Period, Type)), aes(x = Week, y = deaths, group = go, col = Time.Period, lty = Type)) + geom_line() + 
   theme_opts + 
   scale_color_manual(name = "", values = pal) + scale_linetype(name = "") + 
   scale_y_continuous(labels = comma) + labs(x = "Week", y= "Deaths", title = "USA") 
@@ -173,7 +173,7 @@ a
 
 
 
-```{r, results = 'tex', fig = T, fig.width = 9, fig.height = 8, fig.cap = "\\label{supp.weekly.deaths} All-cause mortality by country by week and year.  The comparison period is the average of 2015-2019, except in Germany, we used only years 2016-19 due data accessibility.  Early 2020 mortality is lower than average in e.g. Denmark, Germany, and Switzerland."}
+```{r excess, results = 'tex', fig = T, fig.width = 9, fig.height = 8, fig.cap = "\\label{supp.weekly.deaths} All-cause mortality by country by week and year.  The comparison period is the average of 2015-2019, except in Germany, we used only years 2016-19 due data accessibility.  Early 2020 mortality is lower than average in e.g. Denmark, Germany, and Switzerland."}
 
 #### LOAD IN DATA ####
 setwd(paste0(wd, "/1 - Data"))
@@ -197,7 +197,7 @@ a
 
 ## Mortality Time Series
 
-```{r percapitaplot, results = 'tex', fig.pos = "H", fig = T, fig.width = 8, fig.height = 6, fig.cap="Estimates of per capita and total COVID-19 mortality from February-September 2020."}
+```{r deaths, results = 'tex', fig.pos = "H", fig = T, fig.width = 8, fig.height = 7, fig.cap="Estimates of per capita and total COVID-19 mortality from February-September 2020."}
 
 e3 = e2 %>% filter(date > as.Date("2020-02-13") & date <= "2020-09-19") %>%
   mutate(col = ifelse(location_name %in% c("Australia", "South Korea", "Japan"),
@@ -216,8 +216,8 @@ e2 = e3
 a1 = ggplot(e3, aes(x = date, y = rate_per_100k, group = location_name, col = col)) + 
   geom_line() + scale_color_manual(values = pal, guide = F) + 
   geom_point(aes(x = as.Date("2020-09-19"), y = (rate_per_100k)), col = "white", size = 5) +
-  geom_text(size = 3, aes(x = as.Date("2020-09-19"), y = rate_per_100k, label = country_lab)) + 
-  labs(x = "", y = "", title = "Cumulative deaths per 100K population") + 
+  geom_text(size = 2.5, aes(x = as.Date("2020-09-19"), y = rate_per_100k, label = country_lab)) + 
+  labs(x = "", y = "", title = "Cumulative deaths per 100K") + 
   scale_x_date(expand = c(0,10)) + 
   scale_y_continuous(expand = c(0,0), lim = c(0, 90)) + geom_vline(xintercept = as.Date("2020-05-10"), lty = 2, col = "darkgrey") + geom_vline(xintercept = as.Date("2020-06-07"), lty = 2, col = "darkgrey") + theme_opts
 
@@ -225,20 +225,22 @@ a1 = ggplot(e3, aes(x = date, y = rate_per_100k, group = location_name, col = co
 a2 = ggplot(e2 %>% filter(date<="2020-09-12"), aes(x = date, y = roll7, group = location_name, col = col)) + 
   geom_line() + 
   geom_point(aes(x = as.Date("2020-09-12"), y = roll7), col = "white", size = 5) +
-  geom_text(size = 3, aes(x = as.Date("2020-09-12"), 
-                y = roll7,
-                label = ifelse(location_name%in%c("United States of America", "Spain", "Israel", "France"), country_lab_roll, ""))) + 
+  geom_text(size = 2.5, aes(x = as.Date("2020-09-12"), 
+                y = case_when(location_name=="United States of America"~roll7+.05,
+                              location_name=="Spain"~roll7-.05,
+                              location_name=="Israel"~roll7),
+                label = ifelse(location_name%in%c("United States of America", "Spain", "Israel"), country_lab_roll, ""))) + 
   scale_color_manual(guide = F, values = pal) + 
   scale_x_date(expand = c(0,10)) + 
   scale_y_continuous(labels = comma, expand = c(0,0)) +
-  labs(x = "", y = "", title = "Rolling 7-day average of deaths per 100K population") + geom_vline(xintercept = as.Date("2020-05-10"), lty = 2, col = "darkgrey") + geom_vline(xintercept = as.Date("2020-06-07"), lty = 2, col = "darkgrey") + theme_opts
+  labs(x = "", y = "", title = "Rolling 7-day average of deaths per 100K") + geom_vline(xintercept = as.Date("2020-05-10"), lty = 2, col = "darkgrey") + geom_vline(xintercept = as.Date("2020-06-07"), lty = 2, col = "darkgrey") + theme_opts
 
 
 # total
 b1 = ggplot(e2 %>% filter(date<="2020-09-12"), aes(x = date, y = roll7_raw, group = location_name, col = col)) + 
   geom_line() + 
   geom_point(aes(x = as.Date("2020-09-12"), y = roll7_raw), col = "white", size = 5) +
-  geom_text(size = 3, aes(x = as.Date("2020-09-12"), 
+  geom_text(size = 2.5, aes(x = as.Date("2020-09-12"), 
                 y = roll7_raw,
                 label = ifelse(location_name%in%c("United States of America", "Spain", "France, Israel"), country_lab_roll, ""))) + 
   scale_color_manual(guide = F, values = pal) + 
@@ -250,7 +252,7 @@ b2 = ggplot(e2  %>% filter(date<="2020-09-12"), aes(x = date,
                    y = ifelse(roll7_raw==0, .01, roll7_raw), group = location_name, col = col)) + 
   geom_line() + 
   geom_point(aes(x = as.Date("2020-09-12"), y = roll7_raw), col = "white", size = 5) +
-  geom_text(size = 3, aes(x = as.Date("2020-09-12"), 
+  geom_text(size = 2.5, aes(x = as.Date("2020-09-12"), 
                 y = ifelse(roll7_raw==0, .01, roll7_raw),
                 label =  country_lab_roll)) + 
   scale_color_manual(guide = F, values = pal) + 
@@ -263,7 +265,7 @@ b2 = ggplot(e2  %>% filter(date<="2020-09-12"), aes(x = date,
 b3 = ggplot(e2, aes(x = date, y = count, group = location_name, col = col)) + 
   geom_line() + 
     geom_point(aes(x = as.Date("2020-09-19"), y = (count)), col = "white", size = 5) +
-  geom_text(size = 3, aes(x = as.Date("2020-09-19"), y = count, label = country_lab)) +
+  geom_text(size = 2.5, aes(x = as.Date("2020-09-19"), y = count, label = country_lab)) +
   scale_color_manual(guide = F, values = pal) + 
   scale_x_date(expand = c(0,10)) + 
   scale_y_continuous(labels = comma_format(), expand = c(0,10), lim = c(0,210000)) +
@@ -272,7 +274,7 @@ b3 = ggplot(e2, aes(x = date, y = count, group = location_name, col = col)) +
 b4 = ggplot(e2, aes(x = date, y = count, group = location_name, col = col)) + 
   geom_line() + 
     geom_point(aes(x = as.Date("2020-09-19"), y = (count)), col = "white", size = 5) +
-  geom_text(size = 3, aes(x = as.Date("2020-09-19"), label = country_lab)) +
+  geom_text(size = 2.5, aes(x = as.Date("2020-09-19"), label = country_lab)) +
   scale_color_manual(guide = F, values = pal) + 
   scale_x_date(expand = c(0,10)) + 
   scale_y_continuous(labels=comma_format(accuracy = 1),
