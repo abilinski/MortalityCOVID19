@@ -10,5 +10,3 @@ and 18 Comparison Countries](https://jamanetwork.com/journals/jama/issue/324/5),
 Direct questions to Alyssa Bilinski ([abilinski@g.harvard.edu](abilinski@g.harvard.edu)).
 
   </font>
-
-  <embed src="https://github.com/abilinski/MortalityCOVID19/blob/main/3%20-%20Markdown%20files/Technical%20notes%20and%20additional%20supplemental%20information/extended_supplement_FINAL_files/figure-latex/percapitaplot-1.pdf" alt="Mortality plot" width="800px" class="center"/>
