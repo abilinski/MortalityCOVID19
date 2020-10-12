@@ -79,7 +79,7 @@ est_date = function(e2, date_end = as.Date("2020-09-19"), US_pop = pop){
   
   # deaths day before "switch" time
   US_crit = e2$count[e2$location_name=="United States of America" & e2$date==(e2$date_start-1)]
-  print(US_crit)
+  #print(US_crit)
   
   e3 = e2 %>% group_by(location_name) %>% 
     # calculate death rate

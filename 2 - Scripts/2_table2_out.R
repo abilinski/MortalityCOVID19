@@ -45,11 +45,11 @@ est_week = function(countries2, US_pop = pop){
       
     # deaths at end of period
     max = countries3$excess[countries3$location_name=="United States of America" & countries3$var=="deaths_total"]
-    print(max)
+    #print(max)
     
     # deaths day before "switch" time
     US_crit = countries3$excess[countries3$location_name=="United States of America" & countries3$var=="deaths_before"]
-    print(US_crit)
+    #print(US_crit)
     
     out = countries3 %>% filter(var=="rate_per_100K") %>% 
       # calculate death rate
